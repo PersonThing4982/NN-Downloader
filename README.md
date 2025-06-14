@@ -1,164 +1,71 @@
-# NN-Downloader v2.0
+# NN-Downloader
 
-A modern, async multi-site media downloader with an intuitive GUI interface. Download images and media from various adult content sites with advanced features like proxy support, rate limiting, and concurrent downloads.
+Welcome to the successor of the [multporn image downloader v1][2] & [v2][1] and most downloaders out there regarding "NSFW" material. The NN-Downloader or Naughty-Naughty-Downloader (yes very creative I know) supports multiple sites with their official API (if available), and proxies and it's also portable.
 
-## Features
+### Preview
+![preview](https://github.com/Official-Husko/NN-Downloader/blob/dev/preview/preview.gif)
 
-- **Multi-site Support**: Download from e621, e6ai, e926, Furbooru, Rule34, Luscious, Multporn, and Yiffer
-- **Async Downloads**: Fast concurrent downloading with configurable limits
-- **GUI Interface**: User-friendly Tkinter-based interface
-- **Proxy Support**: Built-in proxy management and rotation
-- **Rate Limiting**: Respectful downloading with configurable rate limits
-- **Tag-based Downloads**: Search and download by tags or specific URLs
-- **Blacklist Support**: Filter out unwanted content by tags or file formats
-- **Progress Tracking**: Real-time download progress and task management
+> [!NOTE]
+> This projects windows exe is built using [Github Actions][23] for full transparency on the build process.
 
-## Supported Sites
+[Windows Download][14] | [Linux Download][21] (Thanks to [incognibro538](https://github.com/incognibro538))
 
-- **e621**: Popular furry art archive
-- **e6ai**: AI-generated content variant
-- **e926**: Safe-for-work version of e621
-- **Furbooru**: Community-driven furry image board
-- **Rule34**: General adult content site
-- **Luscious**: Adult comics and images
-- **Multporn**: Adult comic archive
-- **Yiffer**: Furry comic platform
+<br />
 
-## Installation
+#### Features:
+- Portable
+- Proxy Support
+- AI Training Compatible
+- Avoid Duplicates
+- Fast & Efficient Downloads
 
-### Prerequisites
+<br />
 
-- Python 3.8 or higher
-- tkinter (usually included with Python)
+#### Currently Supported:
+- [Rule34][3] (API)
+- [E621][4] (API)
+- [E6AI][22] (API)
+- [E926][5] (API)
+- [Furbooru][6] (API)
+- [Multporn][7]
+- [Yiffer][8]
+- [Luscious][16]
 
-### Setup
+<br />
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/nn-downloader.git
-cd nn-downloader
-```
+[1]: https://github.com/Official-Husko/multporn-image-downloader-v2
+[2]: https://github.com/Official-Husko/multporn-image-downloader
+[3]: https://rule34.xxx
+[4]: https://e621.net/
+[5]: https://e926.net/
+[6]: https://furbooru.org/
+[7]: https://multporn.net/
+[8]: https://yiffer.xyz/
+[9]: https://theyiffgallery.com/
+[10]: https://furry.booru.org/
+[11]: https://github.com/Official-Husko/NN-Downloader/issues
+[12]: https://booru.plus/
+[13]: https://github.com/Official-Husko/NN-Downloader#currently-supported=
+[14]: https://github.com/Official-Husko/NN-Downloader/releases/latest/download/NN-Downloader.exe
+[15]: https://nhentai.net/
+[16]: https://luscious.net/
+[17]: https://www.pixiv.net/
+[18]: https://hentairead.com/
+[19]: https://rule34.art/
+[20]: https://2.multporn.net/
+[21]: https://codeload.github.com/Official-Husko/NN-Downloader/zip/refs/heads/master
+[22]: https://e6ai.net/
+[23]: https://github.com/Official-Husko/NN-Downloader/actions
 
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+Further sites can be added. Just open a [support ticket][11] with the URL to the site.
 
-3. Run the application:
-```bash
-python main.py
-```
+<br />
+<br />
 
-## Usage
+#### Disclaimer  
+***I am not in any way affiliated or working with these Sites. This is an unofficial project.***  
+*I would suggest you use a customized Terminal.
 
-### GUI Mode (Recommended)
 
-Simply run `python main.py` to launch the graphical interface where you can:
-
-- Select which sites to download from
-- Enter URLs or search tags
-- Configure download settings
-- Monitor download progress
-- Manage download queues
-
-### Configuration
-
-The application uses `config.json` for settings. Key configuration options:
-
-- **Site Settings**: Enable/disable sites and set rate limits
-- **Download Settings**: Concurrent downloads, timeouts, and output directory
-- **Proxy Settings**: Enable proxy support with automatic rotation
-- **Blacklists**: Filter content by tags or file formats
-
-### Example Configuration
-
-```json
-{
-  "download": {
-    "concurrent_downloads": 3,
-    "output_directory": "media",
-    "timeout": 30
-  },
-  "proxy": {
-    "enabled": false,
-    "test_on_startup": true
-  },
-  "blacklisted_tags": ["gore", "scat"],
-  "blacklisted_formats": ["swf"]
-}
-```
-
-## Project Structure
-
-```
-nn-downloader/
-├── main.py                    # Entry point
-├── config.json              # Configuration file
-├── requirements.txt          # Dependencies
-├── gui/
-│   └── tkinter_app.py       # GUI implementation
-├── downloaders/             # Site-specific downloaders
-│   ├── base_async.py       # Base downloader class
-│   ├── e621_async.py       # e621 downloader
-│   ├── furbooru_async.py   # Furbooru downloader
-│   └── ...                 # Other site downloaders
-└── utils/                   # Utility modules
-    ├── config_manager_async.py
-    ├── directory_manager_async.py
-    └── proxy_manager_async.py
-```
-
-## Development
-
-### Architecture
-
-- **Async-first**: Built with asyncio for efficient concurrent operations
-- **Modular Design**: Each site has its own downloader module
-- **Clean Separation**: GUI, downloaders, and utilities are separated
-- **Type Hints**: Full type annotation support
-
-### Adding New Sites
-
-1. Create a new downloader in `downloaders/` inheriting from `BaseAsyncDownloader`
-2. Implement required methods for the site's API
-3. Add site configuration to `config.json`
-4. Update the GUI to include the new site
-
-## Requirements
-
-- **aiohttp**: Async HTTP client
-- **aiofiles**: Async file operations
-- **tkinter**: GUI framework (included with Python)
-
-## Legal Notice
-
-This tool is for educational purposes only. Users are responsible for ensuring their use complies with:
-
-- Site terms of service
-- Local laws and regulations
-- Copyright and intellectual property rights
-- Content policies
-
-Always respect rate limits and website terms when downloading content.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Changelog
-
-### v2.0.0
-- Complete rewrite with async architecture
-- New GUI interface
-- Enhanced proxy support
-- Improved error handling
-- Added more sites
-- Better configuration management
+[//]: # (Ingore These Lines Below)
+[//]: # (Including mirror [rule34.art][19] & [2.multporn.net][20])
